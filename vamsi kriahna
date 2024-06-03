@@ -1,0 +1,21 @@
+import psutil
+
+# Define thresholds
+CPU_THRESHOLD = 80
+MEM_THRESHOLD = 80
+DISK_THRESHOLD = 80
+
+# Get system metrics
+cpu_usage = psutil.cpu_percent()
+memory_usage = psutil.virtual_memory().percent
+disk_usage = psutil.disk_usage('/').percent
+
+# Check metrics against thresholds
+if cpu_usage > CPU_THRESHOLD:
+    print(f"CPU Usage is high: {cpu_usage}%")
+
+if memory_usage > MEM_THRESHOLD:
+    print(f"Memory Usage is high: {memory_usage}%")
+
+if disk_usage > DISK_THRESHOLD:
+    print(f"Disk Usage is high: {disk_usage}%")
